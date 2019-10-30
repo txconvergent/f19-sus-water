@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>997917313808-nd0s3q3fuj68ga628njlq1bitctfq6d0.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.997917313808-nd0s3q3fuj68ga628njlq1bitctfq6d0</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCRK4K-1GRFMJS9Bpxh7CkMHwFK4vjDC6Q</string>
+	<key>GCM_SENDER_ID</key>
+	<string>997917313808</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.myApp</string>
+	<key>PROJECT_ID</key>
+	<string>water-c6a9c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>water-c6a9c.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:997917313808:ios:a582bfdc84fb9ee80b3395</string>
+	<key>DATABASE_URL</key>
+	<string>https://water-c6a9c.firebaseio.com</string>
+</dict>
+</plist>
