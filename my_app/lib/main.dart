@@ -1,28 +1,62 @@
 import 'package:flutter/material.dart';
-import 'home_widget.dart';
+import 'package:my_app/home_widget.dart';
+import 'package:my_app/profile_widget.dart';
+import 'package:my_app/search_page.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: Home(),
+      title: 'Startup Name Generator',
+      home: NavBar(),
     );
   }
 }
 
+class NavBarState extends State<NavBar> {
+  @override
+  int _currentIndex = 0;
+  final List<Widget> _children = [HomeWidget(), SearchWidget(), ProfileWidget()];
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Drip"),
+      ),
+      body: _children[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.amber,
+        onTap: onTabTapped,
+        currentIndex: _currentIndex, // this will be set when a new tab is tapped
+        items: [
+         BottomNavigationBarItem(
+           backgroundColor: Colors.lightBlue,
+           icon: new Icon(Icons.home),
+           title: new Text('Home'),
+         ),
+         BottomNavigationBarItem(
+           backgroundColor: Colors.lightBlue,
+           icon: new Icon(Icons.search),
+           title: new Text('Search'),
+         ),
+         BottomNavigationBarItem(
+           backgroundColor: Colors.lightBlue,
+           icon:Icon(Icons.person),
+           title: Text('Profile')
+         ),
+       ],
+     ),
+    );
+  }
+  void onTabTapped(int index) {
+   setState(() {
+     _currentIndex = index;
+   });
+ }
+}
+
+  class NavBar extends StatefulWidget {
+    @override
+    NavBarState createState() => NavBarState();
+  }
