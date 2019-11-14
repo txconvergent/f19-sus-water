@@ -56,20 +56,10 @@ class _SearchState extends State<SearchWidget> {
   }
 
   Widget _buildList(BuildContext context, List<DocumentSnapshot> snapshot) {
-    List filtered = new List<Widget>();
     List items = new List<Widget>();
-    if ((_searchText.isNotEmpty)){
-      List tempList = new List();
-      filtered = snapshot.toList();
-      for (int i = 0; i < filtered.length; i++) {
-        final record = Record.fromSnapshot(filtered[i]);
-        if (record.name.toLowerCase().contains(_searchText.toLowerCase())) {
-          tempList.add(filtered[i]);
-        }
-      }
-      items = tempList.map((data) => _buildListItem(context, data)).toList();
-    }
-    else {
+    if ((_searchText.isNotEmpty)) {
+      items = _filterList(snapshot);
+    } else {
       items = snapshot.map((data) => _buildListItem(context, data)).toList();
     }
     return ListView(
@@ -97,6 +87,18 @@ class _SearchState extends State<SearchWidget> {
         ),
       ),
     );
+  }
+
+  List _filterList(List<DocumentSnapshot> snapshot) {
+    List tempList = new List();
+    List filtered = snapshot.toList();
+    for (int i = 0; i < filtered.length; i++) {
+      final record = Record.fromSnapshot(filtered[i]);
+      if (record.name.toLowerCase().contains(_searchText.toLowerCase())) {
+        tempList.add(filtered[i]);
+      }
+    }
+    return tempList.map((data) => _buildListItem(context, data)).toList();
   }
 
   void _searchPressed() {
