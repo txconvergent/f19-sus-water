@@ -66,8 +66,10 @@ class _SearchState extends State<SearchWidget> {
       return Container(
         margin: const EdgeInsets.all(10.0),
         alignment: Alignment.center,
-        child: Text('No matches',
-            style: TextStyle(fontSize: 20),),
+        child: Text(
+          'No matches',
+          style: TextStyle(fontSize: 20),
+        ),
       );
     } else {
       return ListView(
@@ -95,7 +97,14 @@ class _SearchState extends State<SearchWidget> {
               //record.reference.updateData({'likes': FieldValue.increment(1)}),
               Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => ItemPage()),
+            MaterialPageRoute(
+              builder: (context) => ExtractItemArguments(),
+              settings: RouteSettings(
+                arguments: ItemArguments(
+                  record,
+                ),
+              ),
+            ),
           ),
         ),
       ),
@@ -154,5 +163,32 @@ class ItemPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ItemWidget();
+  }
+}
+
+class ItemArguments {
+  final Record record;
+
+  ItemArguments(this.record);
+}
+
+class ExtractItemArguments extends StatelessWidget {
+  static const routeName = '/extractArguments';
+
+  @override
+  Widget build(BuildContext context) {
+    // Extract the arguments from the current ModalRoute settings and cast
+    // them as ScreenArguments.
+    final ItemArguments args = ModalRoute.of(context).settings.arguments;
+    final record = args.record;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(record.name),
+      ),
+      body: Center(
+        child: Text(record.likes.toString()),
+      ),
+    );
   }
 }

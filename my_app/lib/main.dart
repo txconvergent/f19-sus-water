@@ -11,7 +11,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Startup Name Generator',
       home: NavBar(),
-    );
+      routes: {
+        ExtractItemArguments.routeName: (context) => ExtractItemArguments(),
+      }
+      );
   }
 }
 
