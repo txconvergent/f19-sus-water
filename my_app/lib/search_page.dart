@@ -81,6 +81,8 @@ class _SearchState extends State<SearchWidget> {
 
   Widget _buildListItem(BuildContext context, DocumentSnapshot data) {
     final record = Record.fromSnapshot(data);
+    String path = 'assets/${record.name}.png';
+    debugPrint(path);
 
     return Padding(
       key: ValueKey(record.name),
@@ -91,7 +93,7 @@ class _SearchState extends State<SearchWidget> {
           borderRadius: BorderRadius.circular(5.0),
         ),
         child: ListTile(
-          leading: Image.asset('assets/water.png'),
+          leading: Image.asset(path),
           title: Text(record.name),
           isThreeLine: true,
           subtitle: Text('help'),
