@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/search_page.dart';
 
-class ExtractItemArguments extends StatelessWidget {
+class ItemPage extends StatelessWidget {
   static const routeName = '/extractArguments';
 
   @override

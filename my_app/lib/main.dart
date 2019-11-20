@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'Startup Name Generator',
       home: NavBar(),
       routes: {
-        ExtractItemArguments.routeName: (context) => ExtractItemArguments(),
+        ItemPage.routeName: (context) => ItemPage(),
       }
       );
   }

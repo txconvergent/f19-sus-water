@@ -98,7 +98,7 @@ class _SearchState extends State<SearchWidget> {
               Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => ExtractItemArguments(),
+              builder: (context) => ItemPage(),
               settings: RouteSettings(
                 arguments: ItemArguments(
                   record,
