@@ -27,7 +27,7 @@ class NavBarState extends State<NavBar> {
     return Scaffold(
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.amber,
+        selectedItemColor: Colors.lightBlue,
         onTap: onTabTapped,
         currentIndex: _currentIndex, // this will be set when a new tab is tapped
         items: [
