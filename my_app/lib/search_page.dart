@@ -158,37 +158,3 @@ class Record {
   @override
   String toString() => "Record<$name:$likes>";
 }
-
-class ItemPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ItemWidget();
-  }
-}
-
-class ItemArguments {
-  final Record record;
-
-  ItemArguments(this.record);
-}
-
-class ExtractItemArguments extends StatelessWidget {
-  static const routeName = '/extractArguments';
-
-  @override
-  Widget build(BuildContext context) {
-    // Extract the arguments from the current ModalRoute settings and cast
-    // them as ScreenArguments.
-    final ItemArguments args = ModalRoute.of(context).settings.arguments;
-    final record = args.record;
-
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(record.name),
-      ),
-      body: Center(
-        child: Text(record.likes.toString()),
-      ),
-    );
-  }
-}
