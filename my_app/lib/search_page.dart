@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
+import 'package:my_app/item_page.dart';
 
 class SearchWidget extends StatefulWidget {
   @override
@@ -39,7 +40,6 @@ class _SearchState extends State<SearchWidget> {
           icon: _searchIcon,
           onPressed: _searchPressed,
         ),
-        backgroundColor: Colors.grey,
       ),
       body: _buildBody(context),
     );
@@ -62,10 +62,19 @@ class _SearchState extends State<SearchWidget> {
     } else {
       items = snapshot.map((data) => _buildListItem(context, data)).toList();
     }
-    return ListView(
-      padding: const EdgeInsets.only(top: 20.0),
-      children: items,
-    );
+    if (items.length == 0) {
+      return Container(
+        margin: const EdgeInsets.all(10.0),
+        alignment: Alignment.center,
+        child: Text('No matches',
+            style: TextStyle(fontSize: 20),),
+      );
+    } else {
+      return ListView(
+        padding: const EdgeInsets.only(top: 20.0),
+        children: items,
+      );
+    }
   }
 
   Widget _buildListItem(BuildContext context, DocumentSnapshot data) {
@@ -83,7 +92,11 @@ class _SearchState extends State<SearchWidget> {
           title: Text(record.name),
           trailing: Text(record.likes.toString()),
           onTap: () =>
-              record.reference.updateData({'likes': FieldValue.increment(1)}),
+              //record.reference.updateData({'likes': FieldValue.increment(1)}),
+              Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ItemPage()),
+          ),
         ),
       ),
     );
@@ -135,4 +148,11 @@ class Record {
 
   @override
   String toString() => "Record<$name:$likes>";
+}
+
+class ItemPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ItemWidget();
+  }
 }

@@ -11,8 +11,11 @@ class _ProfileState extends State<ProfileWidget>{
    final Color color = Colors.white;
  @override
  Widget build(BuildContext context) {
-   return Container(
-     color: color,
+   return Scaffold(
+     appBar: AppBar(
+        title: Text("Drip"),
+      ),
+     backgroundColor: color,
    );
  }
 }

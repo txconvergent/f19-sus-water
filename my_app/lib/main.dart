@@ -21,9 +21,6 @@ class NavBarState extends State<NavBar> {
   final List<Widget> _children = [HomeWidget(), SearchWidget(), ProfileWidget()];
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Drip"),
-      ),
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.amber,
