@@ -91,7 +91,10 @@ class _SearchState extends State<SearchWidget> {
           borderRadius: BorderRadius.circular(5.0),
         ),
         child: ListTile(
+          leading: Image.asset('assets/water.png'),
           title: Text(record.name),
+          isThreeLine: true,
+          subtitle: Text('help'),
           trailing: Text(record.likes.toString()),
           onTap: () =>
               //record.reference.updateData({'likes': FieldValue.increment(1)}),
