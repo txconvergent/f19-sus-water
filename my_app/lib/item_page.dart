@@ -22,12 +22,12 @@ class ItemPage extends StatelessWidget {
                   'assets/${record.name}.png',
                   fit: BoxFit.fitWidth
               ),
-//              Text(
-//                  'Water footprint: ${record.water} liters\nCarbon emission: ${record.carbon} kilos\nRoughly equivalent to driving ${record.car} miles\n${record.related}',
-//                  style: TextStyle(
-//                      fontSize: 20,
-//                  )
-//              )
+             Text(
+                 'Water footprint: ${record.water} liters\nCarbon emission: ${record.carbon} kilos\nRoughly equivalent to driving ${record.car} miles\n${record.related}',
+                 style: TextStyle(
+                     fontSize: 20,
+                 )
+             )
             ],
           )
       ),
