@@ -16,7 +16,20 @@ class ItemPage extends StatelessWidget {
         title: Text(record.name),
       ),
       body: Center(
-        child: Text(record.likes.toString()),
+          child: Column(
+            children: <Widget>[
+              Image.asset(
+                  'assets/${record.name}.png',
+                  fit: BoxFit.fitWidth
+              ),
+//              Text(
+//                  'Water footprint: ${record.water} liters\nCarbon emission: ${record.carbon} kilos\nRoughly equivalent to driving ${record.car} miles\n${record.related}',
+//                  style: TextStyle(
+//                      fontSize: 20,
+//                  )
+//              )
+            ],
+          )
       ),
     );
   }
