@@ -82,7 +82,6 @@ class _SearchState extends State<SearchWidget> {
   Widget _buildListItem(BuildContext context, DocumentSnapshot data) {
     final record = Record.fromSnapshot(data);
     String path = 'assets/${record.name}.png';
-    debugPrint(path);
 
     return Padding(
       key: ValueKey(record.name),
@@ -149,13 +148,20 @@ class _SearchState extends State<SearchWidget> {
 class Record {
   final String name;
   final int likes;
+  final String carbon;
+  final String water;
+  final String car;
+  final String related;
   final DocumentReference reference;
 
   Record.fromMap(Map<String, dynamic> map, {this.reference})
-      : assert(map['Name'] != null),
-        assert(map['likes'] != null),
-        name = map['Name'],
-        likes = map['likes'];
+      : name = map['Name'],
+        likes = map['likes'],
+        carbon = map['carbon'],
+        car = map['car'],
+        water = map['water'],
+        related = map['related'];
+
 
   Record.fromSnapshot(DocumentSnapshot snapshot)
       : this.fromMap(snapshot.data, reference: snapshot.reference);
